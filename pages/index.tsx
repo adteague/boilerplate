@@ -6,6 +6,7 @@ import DesignModule from "../components/DesignModule";
 import DownloadButton from "../components/DownloadButton";
 
 const Home: NextPage = () => {
+  console.log('Booooom =>>>XXXXXX');
   return (
     <div className={styles.container}>
       <Head>
