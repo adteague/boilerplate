@@ -9,14 +9,16 @@ import DownloadButton from "../components/DownloadButton";
 const Home: NextPage = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [frameColor, setFrameColor] = useState("red");
+  const [count, setCount] = useState(0);
 
   const toggleImage = () => {
-    // setImageUrl(
-    //   imageUrl ===
-    //     "https://poap-templates.s3.us-east-2.amazonaws.com/f3aa5f43-c58e-45da-9a88-dc1c6f37bda6.jpeg"
-    //     ? "https://poap-templates.s3.us-east-2.amazonaws.com/a2d7cd73-8871-4dd3-9e49-dea4f577bb16.png"
-    //     : "https://poap-templates.s3.us-east-2.amazonaws.com/f3aa5f43-c58e-45da-9a88-dc1c6f37bda6.jpeg"
-    // );
+    const urls = [
+      'https://poap-templates.s3.us-east-2.amazonaws.com/f3aa5f43-c58e-45da-9a88-dc1c6f37bda6.jpeg',
+      'https://poap-templates.s3.us-east-2.amazonaws.com/a2d7cd73-8871-4dd3-9e49-dea4f577bb16.png',
+      'https://poap-templates.s3.us-east-2.amazonaws.com/a4b9da2e-46ad-494a-bfd5-23da65742c5a.png',
+    ];
+    setImageUrl(urls[count % 3]);
+    setCount((v) => ++v)
   };
 
   const toggleFrameColor = () => {

@@ -26,7 +26,7 @@ function ImageToBase64({ url, onChange }: Props) {
                     setBase64Image('')
                     setShowImage(false)
                 }
-            }, 50)
+            }, 20)
         }
     }, [imageRef, imageLoaded]);
 
@@ -35,6 +35,7 @@ function ImageToBase64({ url, onChange }: Props) {
     }, [base64Image])
 
     useEffect(() => {
+        setImageLoaded(false);
         setShowImage(true)
         setBase64Image('')
     }, [url]);
@@ -45,6 +46,9 @@ function ImageToBase64({ url, onChange }: Props) {
             setImageLoaded(false);
         }}
         afterLoad={() => {
+            setImageLoaded(true);
+        }}
+        onLoad={() => {
             setImageLoaded(true);
         }}
         crossOrigin="anonymous"
